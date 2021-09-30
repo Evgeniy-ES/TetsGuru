@@ -4,8 +4,9 @@ class User < ApplicationRecord
   has_many :test, through: :tests_users
   has_many :author_tests, class_name: 'Test', foreign_key: :author_id
 
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+
   def tests_by_level(level)
-    Test.joins('INNER JOIN users_tests ON users_test.test_id = tests.id')
-      .where('tests.level = :level', level: level).where(users_tests: { user_id: self.id})
+    tests.where(level: level)
   end
 end

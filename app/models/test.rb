@@ -5,7 +5,7 @@ class Test < ApplicationRecord
   belongs_to :category
   belongs_to :author, class_name: 'User', foreign_key: :author_id
 
-  scope :by_category_name, (category) -> {joins(:category).where(categories: { title: category })}
+  scope :by_category_name, -> (category)  { joins(:category).where(categories: { title: category })}
 
   scope :simple_level,  -> { where(level: 0..1) }
   scope :average_level, -> { where(level: 2..4) }

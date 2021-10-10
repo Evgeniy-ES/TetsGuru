@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   root to: 'tests#index'
   resources :tests
 
-  get '/tests/:category/:title', to: 'tests#search'
+  get '/tests/:category/:title', to: 'tests#search', level: 1
 
-  # resources :tests do
-  #   resources :questions
-  # end
+   resources :tests do
+     resources :questions
+   end
 
   # resources :tests do
   #   resourroot to: 'tests#index'ces :questions, shallow: true

@@ -1,29 +1,48 @@
 class TestsController < ApplicationController
 
   #skip_before_action :find_test, only: :show
-  before_action :find_test, only: %i[show]
-  after_action :send_log_message
-  around_action :log_execute_time
+  #before_action :find_test, only: %i[show]
+  #after_action :send_log_message
+  #around_action :log_execute_time
 
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
+  #rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
     #byebug
-    result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
-    render plain: result.join("\n")
+    @tests = Test.all
   end
 
   def show
-    render inline: '<%= @test.title %>'
+    @test = Test.find(params[:id])
   end
 
   def new
-
+    @test = Test.new
   end
 
   def create
-    test = Test.create(test_params)
-    render plain: test.inspect
+    @test = Test.new(test_params)
+
+    if @test.save
+      redirect_to @test
+    else
+      render :new
+    end
+
+  end
+
+  def edit
+    @test = Test.find(params[:id])
+  end
+
+  def update
+    @test = Test.find(params[:id])
+
+    if @test.update(test_params)
+      redirect_to @test
+    else
+      render :edit
+    end
   end
 
   # def search

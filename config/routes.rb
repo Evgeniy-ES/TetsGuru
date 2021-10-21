@@ -5,10 +5,9 @@ Rails.application.routes.draw do
 
 #  get '/tests/:category/:title', to: 'tests#search', level: 1
 
-   resources :tests do
-     resources :questions, shallow: true
-   end
-
+resources  :test do
+  resources :questions, shallow: true
+end
   # resources :tests do
   #   resourroot to: 'tests#index'ces :questions, shallow: true
   # end

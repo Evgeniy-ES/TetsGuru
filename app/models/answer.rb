@@ -3,7 +3,7 @@ class Answer < ApplicationRecord
 
   belongs_to :question
 
-  scope :true_answer, -> {where(correct: true)}
+  scope :correct, -> {where(correct: true)}
 
   validate :validate_answers_limit_volume_questions, on: :create
 

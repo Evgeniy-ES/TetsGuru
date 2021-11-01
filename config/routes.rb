@@ -1,12 +1,25 @@
 Rails.application.routes.draw do
 
-  root to: 'tests#index'
+  root to: "home#index"
 
 
 #  get '/tests/:category/:title', to: 'tests#search', level: 1
 
    resources :tests do
-     resources :questions, shallow: true
+     #resources :questions, shallow: true, except: :index do
+       resources :questions, shallow: true do
+       resources :answers, shallow: true#, except: :index
+     end
+
+     member do
+       post :start
+     end
+   end
+
+   resources :test_passages, only: %i[show update] do
+     member do
+       get :result
+     end
    end
 
   # resources :tests do
@@ -21,9 +34,9 @@ Rails.application.routes.draw do
   #   end
   # end
 
-  get '/tests/:id/start', to: 'tests#start'
+  #get '/tests/:id/start', to: 'tests#start'
 
-  get '/tests/:id/start', to: 'tasks#start'
+  #get '/tests/:id/start', to: 'tasks#start'
 
 
 end

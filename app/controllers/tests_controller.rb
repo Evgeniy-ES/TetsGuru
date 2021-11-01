@@ -7,13 +7,16 @@ class TestsController < ApplicationController
 
   #rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
+  before_action :set_test, only: %i[show edit update destroy start]
+  before_action :set_user, only: :start
+
   def index
     #byebug
     @tests = Test.all
   end
 
   def show
-    @test = Test.find(params[:id])
+
   end
 
   def new
@@ -32,18 +35,16 @@ class TestsController < ApplicationController
   end
 
   def edit
-    @test = Test.find(params[:id])
+
   end
 
   def destroy
-    @test = Test.find(params[:id])
 
     @test.destroy
     redirect_to tests_path
   end
 
   def update
-    @test = Test.find(params[:id])
 
     if @test.update(test_params)
       redirect_to @test
@@ -51,6 +52,12 @@ class TestsController < ApplicationController
       render :edit
     end
   end
+
+  def start
+    @user.tests.push(@test)
+    redirect_to @user.test_passage(@test)
+  end
+
 
   # def search
   #   result= ["Class: #{params.class}", "Parameters: #{params.inspect}"]
@@ -63,8 +70,12 @@ class TestsController < ApplicationController
     params.require(:test).permit(:title, :level, :category_id, :author_id)
   end
 
-  def find_test
+  def set_test
     @test = Test.find(params[:id])
+  end
+
+  def set_user
+    @user = User.first
   end
 
   def send_log_message

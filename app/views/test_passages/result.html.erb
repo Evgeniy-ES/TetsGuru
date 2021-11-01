@@ -1,0 +1,12 @@
+<h1>The <%= @test_passage.test.title %> Test was Completed! </h1>
+
+<h2>Result:
+
+<% if @test_passage.success? %>
+  <span style="color: green;"><%= @test_passage.percentage_result %>%</span>
+<% else %>
+  <span style="color: red;"><%= @test_passage.percentage_result %>%</span>
+<% end %>
+
+</h2>
+<%= link_to "Back", :tests %>

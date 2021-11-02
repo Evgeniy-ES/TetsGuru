@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'users/new'
   root to: "home#index"
+
+  get :signup, to: 'users#new'
+
+  resources :users, only: :create
 
 
 #  get '/tests/:category/:title', to: 'tests#search', level: 1

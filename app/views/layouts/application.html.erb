@@ -11,8 +11,12 @@
   </head>
 
   <body>
-    <%= render 'home/header' %>
     <br>
+    <% if logged_in? %>
+     <p class="nav user">Welcome, <b><%= current_user.email %></b> Guru </p>
+    <p class="nav user"><%= link_to 'Exit', logout_path %>
+   </p>
+    <% end %>
     <%= yield %>
     <br>
     <br>

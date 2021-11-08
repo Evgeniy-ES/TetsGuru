@@ -1,15 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'sessions/new'
-  get 'users/new'
-  root to: "home#index"
+  devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
 
-  get :signup, to: 'users#new'
-  get :login, to: 'sessions#new'
-  get :logout, to: 'sessions#destroy'
-
-  resources :users, only: :create
-  resources :sessions, only: :create
+  root to: "tests#index"
 
 
 #  get '/tests/:category/:title', to: 'tests#search', level: 1

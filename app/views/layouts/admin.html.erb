@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TestGuru</title>
+    <title>Admin Panel</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,13 +12,7 @@
 
   <body>
     <br>
-    <% if user_signed_in? %>
-      <p class="nav user">
-        Welcome, <b><%= current_user.first_name %></b> Guru |
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-      </p>
-    <% end %>
-
+    <%= render 'admin/nav' %>
     <%= render 'shared/flash' %>
 
     <%= yield %>

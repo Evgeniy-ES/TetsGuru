@@ -7,10 +7,10 @@ Rails.application.routes.draw do
 
 #  get '/tests/:category/:title', to: 'tests#search', level: 1
 
-   resources :tests do
+   resources :tests, only: :index do
      #resources :questions, shallow: true, except: :index do
-       resources :questions, shallow: true do
-       resources :answers, shallow: true#, except: :index
+       resources :questions, only: :index, shallow: true do
+       resources :answers, only: :index, shallow: true#, except: :index
      end
 
      member do
@@ -22,6 +22,14 @@ Rails.application.routes.draw do
      member do
        get :result
      end
+   end
+
+   namespace :admin do
+     resources :tests  do
+      resources :questions, shallow: true do
+        resources :answers, shallow: true
+      end
+    end
    end
 
   # resources :tests do

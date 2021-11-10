@@ -39,7 +39,9 @@ class TestPassage < ApplicationRecord
 
   def before_validation_set_first_question
     self.current_question = test.questions.first if test.present?
+    #byebug
   end
+
 
   def correct_answer?(answer_ids)
     correct_answers_count = correct_answers.count

@@ -1,0 +1,7 @@
+<tr>
+  <td class="title"><%= question.body %></td>
+  <td class="test_id"><%= question.test_id %></td>
+  <td><%= link_to 'Show', admin_question_path(question) %></td>
+  <td class="functions"><%= link_to "Edit", edit_admin_question_path(question) %></td>
+  <td class="functions"><%= link_to "Delete", admin_question_path(question), method: :delete, data: { confirm: "Are you sure?" } %></td>
+</tr>

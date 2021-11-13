@@ -1,4 +1,11 @@
 ru:
+
+  layouts:
+    application:
+      welcome: "Добро пожаловать"
+      guru: " Гуру"
+      logout: "Выйти"
+
   hello: "Привет мир!"
 
   tests_mailer:
@@ -26,16 +33,79 @@ ru:
         author_id: "Автор"
 
   tests:
+    test:
+      start_test: "Начать тест"
+
     index:
       header: "Доступные Тесты"
+      title: "Название теста"
+      level: "Уровень теста"
+      count questions: "Количество вопросов"
+      action: "Действие"
 
   test_passages:
+
+    show:
+      header: "Вы проходите тест %{title}"
+      count_questions: " Текущий вопрос %{count_questions} из "
+      next: "Следующий"
+
     result:
       header: "Тест %{title} усепешно завершён!"
 
+  home:
+    footer:
+      Author: "Автор: Евсеев Евгений"
+      Project: "Проект:"
+      Study Project: "Учебный проект в онлайн-школе"
+
   admin:
+
+    questions:
+      question:
+        show: "Показать"
+        edit: "Редактировать"
+        delete: "Удалить"
+
+
+    nav:
+      TestGuru Admin Panel: "Панель админа ТестГуру"
+      first_name: "Тест %{title} усепешно завершён!"
+      welcome: "Добро пожаловать"
+      guru: " Гуру"
+      logout: "Выйти"
+
     tests:
+      edit:
+        Back: "Назад"
+
+      new:
+        Create New Test: "Создать новый тест"
+        Back: "Назад"
+
+      show:
+        title: "Название теста: "
+        level: "Уровень теста: "
+        question: "Вопрос"
+        Test ID: "Номер теста"
+        functions: "Функции"
+        New question: "Новый вопрос"
+        Edit: "Редактирровать тест"
+        Back: "Назад"
+
+      test:
+        show: "Показать"
+        edit: "Редактировать"
+        delete: "Удалить"
+
       create:
         success: "Тест был успешно создан."
+
       index:
         header: "Доступные Тесты"
+        show: "Смотреть"
+        actions: "Действия"
+        title: "Название теста"
+        level: "Уровень теста"
+        count questions: "Количество вопросов"
+        new test: "Создать тест"

@@ -1,19 +1,19 @@
 <p>
-  <strong>Title:</strong>
+ <strong><th><%= t('.title') %></th></strong>
   <%= @test.title %>
 </p>
 
 <p>
-  <strong>Level:</strong>
+  <strong><th><%= t('.level') %></th></strong>
   <%= @test.level %>
 </p>
 
 <table>
   <thead>
   <tr>
-    <th>Вопрос</th>
-    <th>Test ID</th>
-    <th colspan="3">Функции</th>
+    <th><%= t('.question') %></th>
+    <th><%= t('.Test ID') %></th>
+    <th colspan="3"><%= t('.functions') %></th>
   </tr>
   </thead>
 
@@ -21,7 +21,7 @@
 </table>
 
 <br>
-<%= link_to 'New question', new_admin_test_question_path(@test) %>
+<%= link_to  t('.New question'), new_admin_test_question_path(@test) %>
 <br>
-<%= link_to 'Edit', edit_admin_test_path(@test) %>
-<%= link_to 'Back', admin_tests_path %>
+<%= link_to t('.Edit'), edit_admin_test_path(@test) %>
+<%= link_to t('.Back'), admin_tests_path %>

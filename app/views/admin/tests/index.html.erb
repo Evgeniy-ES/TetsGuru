@@ -1,13 +1,13 @@
-<h1>Tricky Tests</h1>
+<h1><%= t('.header') %></h1>
 
 <p>
-  <%= link_to 'New test', new_admin_test_path %>
+  <%= link_to t('admin.tests.index.new test'), new_admin_test_path %>
 <table>
   <tr>
-    <th>Title</th>
-    <th>Level</th>
-    <th>Count questions</th>
-    <th colspain="3">Actions</th>
+    <th><%= t('admin.tests.index.title') %></th>
+    <th><%= t('admin.tests.index.level') %></th>
+    <th><%= t('.count questions') %></th>
+    <th colspain="3"><%= t('.actions') %></th>
   </tr>
 
   <%= render @tests %>

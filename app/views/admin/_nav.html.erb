@@ -1,8 +1,24 @@
-<div class="nav nav-admin">
-  <span class="nav-admin title"><%= t('.TestGuru Admin Panel') %> </span>
 
-  <div class="nav-admin user">
-    <%= t('.welcome') %>, <b class="nav-admin user-email"><%= current_user.first_name %></b> <%= t('.guru') %> |
-    <%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
+
+<div class="container">
+
+  <div class="nav nav-admin">
+    <%= link_to t('.TestGuru Admin Panel'), root_path, class: 'navbar-brand' %>
+  </div>
+
+  <div class="row justify-content-end">
+    <div class="col-4">
+
+        <div class="card border-primary">
+          <div class="card-body">
+            <div class="nav-admin user">
+              <%= t('.welcome') %>, <b class="nav-admin user-email"><%= current_user.first_name %></b> <%= t('.guru') %> |
+              <%= button_to t('.logout'), destroy_user_session_path, method: :delete, class: 'btn btn-info' %>
+            </div>
+          </div>
+
+
+      </div>
+    </div>
   </div>
 </div>

@@ -15,7 +15,7 @@ en:
   shared:
     nav:
       logout: "Logout"
-      
+
     errors:
       header:
         one: "%{count} error detected"
@@ -45,6 +45,10 @@ en:
       action: "Action"
 
   test_passages:
+    gist:
+      success: "Gist was successfuly created!"
+      failure: "An error occurred while saving gists"
+
     show:
       header: "You are taking the %{title} test"
       count_questions: "Current question %{count_questions} of "

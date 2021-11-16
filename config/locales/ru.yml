@@ -15,7 +15,7 @@ ru:
   shared:
     nav:
       logout: "Logout"
-      
+
     errors:
       header:
         few: "Обнаружено %{count} ошибки"
@@ -47,6 +47,10 @@ ru:
       action: "Действие"
 
   test_passages:
+
+    gist:
+      success: "Gist успешно сохранён!"
+      failure: "Во время сохранения gist произошла ошибка"
 
     show:
       header: "Вы проходите тест %{title}"

@@ -35,6 +35,9 @@ end
 
 gem 'devise', '~>4.0'
 
+#NETWORK
+gem 'faraday'
+
 gem 'rails-i18n'
 
 gem 'jquery-rails'

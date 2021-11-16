@@ -13,6 +13,9 @@ en:
       subject: "You just completed the TestGuru test!"
 
   shared:
+    nav:
+      logout: "Logout"
+      
     errors:
       header:
         one: "%{count} error detected"
@@ -57,6 +60,7 @@ en:
       Study Project: "Educational project in an online school"
 
   admin:
+
     questions:
       question:
         show: "Show"

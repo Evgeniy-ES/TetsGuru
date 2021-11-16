@@ -1,14 +1,16 @@
-<h1><%= t('.header') %></h1>
+<div class="container px-2">
+  <h1><%= t('.header') %></h1>
 
-<p>
-  <%= link_to t('admin.tests.index.new test'), new_admin_test_path %>
-<table>
-  <tr>
-    <th><%= t('admin.tests.index.title') %></th>
-    <th><%= t('admin.tests.index.level') %></th>
-    <th><%= t('.count questions') %></th>
-    <th colspain="3"><%= t('.actions') %></th>
-  </tr>
+  <p>
+    <%= link_to t('admin.tests.index.new test'), new_admin_test_path %>
+  <table class="table table-inverse ">
+    <tr>
+      <th><%= t('admin.tests.index.title') %></th>
+      <th><%= t('admin.tests.index.level') %></th>
+      <th><%= t('.count questions') %></th>
+      <th colspain="3"><%= t('.actions') %></th>
+    </tr>
 
-  <%= render @tests %>
-</table>
+    <%= render @tests %>
+  </table>
+</div>

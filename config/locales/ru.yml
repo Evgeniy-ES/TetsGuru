@@ -13,6 +13,9 @@ ru:
       subject: "Вы успешно завершили тест на TestGuru!"
 
   shared:
+    nav:
+      logout: "Logout"
+      
     errors:
       header:
         few: "Обнаружено %{count} ошибки"

@@ -1,17 +1,16 @@
 class TestPassagesController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :set_test_passage, only: %i[show update result]
   before_action :set_test_passage, only: %i[show update result gist]
 
   def show
 
   end
-
   def result
   end
-
   def update
-    @test_passage.accept!(params[:answer_ids_passages/84])
+    @test_passage.accept!(params[:answer_ids])
     #byebug
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
@@ -23,15 +22,17 @@ class TestPassagesController < ApplicationController
 
   def gist
     result = GistQuestionService.new(@test_passage.current_question).call
-
+    byebug
     flash_options = if result.success?
-      { notice: t('.success') }
+      byebug
+      result_html = result.env.response.body.partition("html_url\":\"")[2].partition("\"")[0]
+      ans = t('.success') + " " + result_html
+      { notice: ans }
     else
       { alert: t('.failure') }
     end
-
+    byebug
     redirect_to @test_passage, flash_options
-
   end
 
   private

@@ -2,6 +2,7 @@ class GistQuestionService
 
   def initialize(question, client: nil)
     @question = question
+    byebug
     @test = @question.test
     @client = client || GitHubClient.new
   end
@@ -25,7 +26,7 @@ class GistQuestionService
 
   def gist_content
     content = [@question.body]
-    content += @question.answers.pluck(:body)
+    content += @question.answers.pluck(:text)
     content.join("\n")
   end
 

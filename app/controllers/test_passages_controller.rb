@@ -21,6 +21,9 @@ class TestPassagesController < ApplicationController
 
   def gist
 
+    #packet = [@test_passage.current_question.body]
+    #packet += Question.find(@test_passage.current_question.id).answers.pluck(:text)
+
     result = GistQuestionService.new(@test_passage.current_question).call
 
     flash_options = if result.html_url.nil?

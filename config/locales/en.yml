@@ -64,6 +64,13 @@ en:
       Study Project: "Educational project in an online school"
 
   admin:
+    gists:
+      index:
+        gist_list: "Gist list"
+        question': "Question"
+        gist_url: "Gist_url"
+        user: "User email"
+        back: "Back"
 
     questions:
       question:
@@ -77,6 +84,7 @@ en:
       welcome: "Welcome"
       guru: " Guru"
       logout: "Logout"
+      gist_list: "Gist list"
 
     tests:
       edit:

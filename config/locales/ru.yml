@@ -67,6 +67,13 @@ ru:
       Study Project: "Учебный проект в онлайн-школе"
 
   admin:
+    gists:
+      index:
+        gist_list: "Список сохраненных вопросов"
+        question': "Вопрос"
+        gist_url: "Cсылка"
+        user: "Email пользователя"
+        back: "Назад"
 
     questions:
       question:
@@ -81,6 +88,7 @@ ru:
       welcome: "Добро пожаловать"
       guru: " Гуру"
       logout: "Выйти"
+      gist_list: "Список сохраненных вопросов"
 
     tests:
       edit:

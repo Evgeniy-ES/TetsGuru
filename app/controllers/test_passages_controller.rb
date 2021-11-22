@@ -21,20 +21,22 @@ class TestPassagesController < ApplicationController
 
   def gist
 
-    #packet = [@test_passage.current_question.body]
-    #packet += Question.find(@test_passage.current_question.id).answers.pluck(:text)
+    gist_object = GistQuestionService.new(@test_passage.current_question)
+    result = gist_object.call
 
-    result = GistQuestionService.new(@test_passage.current_question).call
+    ttt = gist_object.success?
+    byebug
 
-    flash_options = if result.html_url.nil?
-      { alert: t('.failure') }
-    else
-      Gist.create(
-        question_id: @test_passage.current_question.id, link_to_gist: result.html_url, user_id: current_user.id)
+    if gist_object.success?
+      @test_passage.current_user.gists.create(
+        question: @test_passage.current_question.id, link_to_gist: result.html_url)
+    #  Gist.create(
+    #    question_id: @test_passage.current_question.id, link_to_gist: result.html_url, user_id: current_user.id)
       byebug
       ans = t('.success') + " " + result.html_url
       { notice: ans }
-
+    else
+      { alert: t('.failure') }
     end
 
     redirect_to @test_passage, flash_options
@@ -44,6 +46,5 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
-    #byebug
   end
 end

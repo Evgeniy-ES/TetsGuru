@@ -2,7 +2,6 @@ class GistQuestionService
 
   def initialize(question, client: nil)
     @question = question
-    byebug
     @test = @question.test
     @client = client || GitHubClient.new
   end
@@ -10,6 +9,11 @@ class GistQuestionService
   def call
     @client.create_gist(gist_params)
   end
+
+  def success?
+   last_response = @client.octokit_client.last_response
+   last_response && last_response.status == 201
+ end
 
   private
 

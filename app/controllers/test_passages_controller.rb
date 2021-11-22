@@ -24,17 +24,11 @@ class TestPassagesController < ApplicationController
     gist_object = GistQuestionService.new(@test_passage.current_question)
     result = gist_object.call
 
-    ttt = gist_object.success?
-    byebug
-
-    if gist_object.success?
-      @test_passage.current_user.gists.create(
-        question: @test_passage.current_question.id, link_to_gist: result.html_url)
-    #  Gist.create(
-    #    question_id: @test_passage.current_question.id, link_to_gist: result.html_url, user_id: current_user.id)
-      byebug
-      ans = t('.success') + " " + result.html_url
-      { notice: ans }
+    flash_options = if gist_object.success?
+      current_user.gists.create(
+        question_id: @test_passage.current_question.id, link_to_gist: result.html_url)
+      answer_gist = t('.success') + " " + result.html_url
+      { notice: answer_gist }
     else
       { alert: t('.failure') }
     end

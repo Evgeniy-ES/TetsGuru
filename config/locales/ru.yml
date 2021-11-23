@@ -49,7 +49,7 @@ ru:
   test_passages:
 
     gist:
-      success: "Gist успешно сохранён!"
+      success: "Gist успешно сохранён! %{url}"
       failure: "Во время сохранения gist произошла ошибка"
 
     show:

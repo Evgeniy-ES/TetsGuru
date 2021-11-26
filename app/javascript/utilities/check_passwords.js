@@ -2,16 +2,7 @@ document.addEventListener('turbolinks:load', function() {
 
   var password_confirmation_value = document.querySelector('.password_confirmation')
 
-  if (password_confirmation_value) {
-    password_confirmation_value.addEventListener('keyup', function_check_password)
-   } else {
-    var password_for_icon_ivalid = document.querySelector('.text-invalid')
-    var password_conf_for_icon_invalid = document.querySelector('.text-invalid-conf')
-
-    password_for_icon_ivalid.classList.add('hide')
-    password_conf_for_icon_invalid.classList.add('hide')
-  }
-
+  if (password_confirmation_value) { password_confirmation_value.addEventListener('keyup', function_check_password) }
 
 })
 

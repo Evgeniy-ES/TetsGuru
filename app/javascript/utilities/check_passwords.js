@@ -1,44 +1,25 @@
 document.addEventListener('turbolinks:load', function() {
 
-  var password = document.querySelector('.password');
-  var passwordConfirmation = document.querySelector('.password_confirmation');
+  var password_confirmation_value = document.querySelector('.password_confirmation')
 
-  if (!(password.length > 0 && passwordConfirmation.length > 0)) {
-    console.log('password')
-    console.log(password);
-    console.log('passwordConfirmation')
-    console.log(passwordConfirmation);
-  }
-
-  if (password.value == passwordConfirmation.value) {
-    console.log('!!!password')
-    console.log(password);
-    console.log('!!! passwordConfirmation')
-    console.log(passwordConfirmation);
-  }
-
-
-console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-
-
-  //var password_confirmation_value = document.querySelector('.password_confirmation')
-
-  //if (password_confirmation_value) { password_confirmation_value.addEventListener('keydown', function_check_password) }
+  if (password_confirmation_value) { password_confirmation_value.addEventListener('keyup', function_check_password) }
 
 })
 
 function function_check_password() {
 
-  var password = document.querySelector('.password');
-  var passwordConfirmation = document.querySelector('.password_confirmation');
+  var passwordConfirmation = document.querySelector('.password_confirmation').value;
+  var password = document.querySelector('.password').value;
 
-  let input = document.querySelectorAll('input');
-  let input_password = document.querySelectorAll('input#user_password');
+  var password_for_icon = document.querySelectorAll('input#user_password')
 
-  console.log('password')
-  console.log(password);
-  console.log('input_password')
-  console.log(input_password);
+  console.log(passwordConfirmation)
+  console.log(password)
 
-  //console.log(password_confirmation_value.length)
+  if (passwordConfirmation == password) {
+    console.log('!!!')
+    password_for_icon('.octicon-arrow-up').classList.remove('hide')
+  }
+
+
 }

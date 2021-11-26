@@ -8,6 +8,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap"
 import "utilities/sorting"
+import "utilities/check_passwords"
 
 
 Rails.start()

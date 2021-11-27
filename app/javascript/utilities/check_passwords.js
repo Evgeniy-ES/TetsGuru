@@ -17,12 +17,17 @@ function function_check_password() {
   var password_for_icon_ivalid = document.querySelector('.text-invalid')
   var password_conf_for_icon_invalid = document.querySelector('.text-invalid-conf')
 
+  if (passwordConfirmation.length == 0) {
+    password_for_icon_ivalid.classList.add('hide')
+    password_conf_for_icon_invalid.classList.add('hide')
+    password_for_icon.classList.add('hide')
+    password_conf_for_icon.classList.add('hide')
+    return
+  }
+
   if (passwordConfirmation == password) {
     password_for_icon.classList.remove('hide')
     password_conf_for_icon.classList.remove('hide')
-    password_for_icon_ivalid.classList.add('hide')
-    password_conf_for_icon_invalid.classList.add('hide')
-  } else if (passwordConfirmation.length == 0) {
     password_for_icon_ivalid.classList.add('hide')
     password_conf_for_icon_invalid.classList.add('hide')
   } else {

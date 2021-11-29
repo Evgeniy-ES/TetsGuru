@@ -19,16 +19,20 @@
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :password %>    
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= octicon 'check-circle', class: 'text-valid hide' %>
+    <%= octicon 'circle-slash', class: 'text-invalid hide' %>
+    <%= f.password_field :password, autocomplete: "new-password", class: 'password'%>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= octicon 'check-circle', class: 'text-valid-conf hide' %>
+    <%= octicon 'circle-slash', class: 'text-invalid-conf hide' %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'password_confirmation' %>
   </div>
 
   <div class="actions">

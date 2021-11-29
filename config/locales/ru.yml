@@ -94,6 +94,9 @@ ru:
       edit:
         Back: "Назад"
 
+      form_inline:
+        submit: "Ok"  
+
       new:
         Create New Test: "Создать новый тест"
         Back: "Назад"

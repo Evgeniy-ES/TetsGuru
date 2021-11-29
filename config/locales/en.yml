@@ -87,6 +87,9 @@ en:
       gist_list: "Gist list"
 
     tests:
+      form_inline:
+        submit: "Ok"
+        
       edit:
         Back: "Back"
 

@@ -11,7 +11,14 @@ class TestsController < ApplicationController
 
   def index
     #byebug
-    @tests = Test.all
+    @tests_all = Test.all
+    @tests = []
+
+    @tests_all.each do |element|
+      if element.questions.count > 0
+        @tests.push(element)
+      end
+    end
   end
 
 

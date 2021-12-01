@@ -1,12 +1,22 @@
 <h1><%= t('.header', title: @test_passage.test.title) %></h1>
 
-<p>
-  <%= t('.count_questions', count_questions: @test_passage.count_questions) %> <%= @test_passage.test.questions.count %>
+ <p>
+  <%= content_tag :span, t('.count_questions', count_questions: @test_passage.count_questions),
+   class: 'count-questions', data: { count_questions: @test_passage.count_questions } %>
+
+  <%= content_tag :span, @test_passage.test.questions.count,
+    class: 'all-count-questions', data: { all_count_questions: @test_passage.test.questions.count } %>
 </p>
 
+<div id="progress">
+  <div id="progress-bar">0%</div>
+</div>
+
+<br>
 <b>
   <%= @test_passage.current_question.body %>
 </b>
+
 
 <div class="card border-primary">
   <div class="card-body">

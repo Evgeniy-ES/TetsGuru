@@ -10,8 +10,7 @@ class TestsController < ApplicationController
   before_action :set_test, only: %i[start]
 
   def index
-    #byebug
-    @tests = Test.all
+    @tests = Test.where(possibility_of_passing: true)
   end
 
 
@@ -20,12 +19,6 @@ class TestsController < ApplicationController
     redirect_to current_user.test_passage(@test)
   end
 
-
-  # def search
-  #   result= ["Class: #{params.class}", "Parameters: #{params.inspect}"]
-  #
-  #   render plain: result.join("\n")
-  # end
   private
 
   def set_test

@@ -9,7 +9,6 @@ class TestPassage < ApplicationRecord
   SUCCESS_RATE_PROCENT = 85
 
   def completed?
-    #byebug
     current_question.nil?
   end
 
@@ -17,8 +16,6 @@ class TestPassage < ApplicationRecord
     if correct_answer?(answer_ids)
       self.correct_questions += 1
     end
-    #self.current_question = next_question
-    #before_update_next_question
     save!
   end
 

@@ -3,6 +3,7 @@
 
   <p>
     <%= link_to t('admin.tests.index.new test'), new_admin_test_path %>
+    <%= render 'shared/errors', resource: @test %>
   <table class="table">
     <tr>
       <th class="sort-by-title pointer">

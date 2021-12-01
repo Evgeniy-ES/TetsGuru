@@ -17,27 +17,21 @@ class Admin::QuestionsController < Admin::BaseController
     @question = @test.questions.new(questions_params)
 
     if @question.save
-      redirect_to @test
+      redirect_to admin_test_questions_path(@test)
     else
       render new
     end
   end
 
-  #def edit
-
-  #end
-
   def update
-    byebug
     if @question.update(questions_params)
-      redirect_to @question.test
+      redirect_to admin_test_questions_path(@question.test)
     else
       render :new
     end
   end
 
   def destroy
-    #byebug
     @question.destroy
     redirect_back(fallback_location: '/')
   end
@@ -57,7 +51,6 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def rescue_with_question_not_found
-    #byebug
     render plain: 'Question was not found'
   end
 end

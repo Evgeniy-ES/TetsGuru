@@ -61,12 +61,6 @@ class Admin::TestsController < Admin::BaseController
     redirect_to current_user.test_passage(@test)
   end
 
-
-  # def search
-  #   result= ["Class: #{params.class}", "Parameters: #{params.inspect}"]
-  #
-  #   render plain: result.join("\n")
-  # end
   private
 
   def set_tests

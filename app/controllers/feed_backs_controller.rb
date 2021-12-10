@@ -12,7 +12,6 @@ class FeedBacksController < ApplicationController
 
    if @feed_back.save
      FeedBacksMailer.send_feed_back(@feed_back).deliver_now
-    # TestsMailer.send_feed_back(@feed_back).deliver_now
      redirect_to root_path, notice: t('.success')
    else
      render :new

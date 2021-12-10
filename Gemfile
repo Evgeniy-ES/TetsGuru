@@ -63,6 +63,8 @@ group :development do
   gem 'spring'
 
   gem 'letter_opener'
+
+  gem 'dotenv-rails'
 end
 
 group :test do
@@ -71,6 +73,8 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+
+  gem 'dotenv-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

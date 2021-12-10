@@ -9,9 +9,10 @@ class User < ApplicationRecord
          #:confirmable
 
   has_many :gists
-  has_many :test_passages
+  has_many :feed_backs
+  has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
-  has_many :author_tests, class_name: 'Test', foreign_key: :author_id
+  has_many :author_tests, class_name: 'Test', foreign_key: :author_id, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 

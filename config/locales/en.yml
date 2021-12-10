@@ -1,5 +1,11 @@
 en:
 
+  feed_backs:
+    new:
+      message: "Message"
+    create:
+      success: "The message has been sent successfully."
+
   layouts:
     application:
       welcome: "Welcome"
@@ -23,10 +29,15 @@ en:
 
   helpers:
     submit:
+      feed_backs:
+        form:
+          submit: "send"
       test:
         create: "Create test"
         update: "Update test"
     label:
+      feed_back:
+        message: "Message"
       test:
         title: "Title"
         level: "Level"
@@ -59,6 +70,7 @@ en:
 
   home:
     footer:
+      feed_back: "Feed back"
       Author: "Author: Evseev Eygeniy"
       Project: "Project:"
       Study Project: "Educational project in an online school"
@@ -89,7 +101,7 @@ en:
     tests:
       form_inline:
         submit: "Ok"
-        
+
       edit:
         Back: "Back"
 

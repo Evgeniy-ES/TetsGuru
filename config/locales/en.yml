@@ -30,7 +30,7 @@ en:
   helpers:
     submit:
       feed_backs:
-        submit: "send"
+        input: "send"
       test:
         create: "Create test"
         update: "Update test"

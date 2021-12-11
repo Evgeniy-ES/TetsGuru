@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     end
    end
 
-   resources :feed_backs
+   resources :feed_backs, only: %i[new create]
 
   # resources :tests do
   #   resourroot to: 'tests#index'ces :questions, shallow: true

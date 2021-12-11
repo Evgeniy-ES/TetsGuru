@@ -7,8 +7,7 @@ class FeedBacksController < ApplicationController
  end
 
  def create
-   @feed_back = FeedBack.new(feed_back_params)
-   @feed_back.user_id = current_user.id
+   @feed_back = current_user.feed_backs.new(feed_back_params)
 
    if @feed_back.save
      FeedBacksMailer.send_feed_back(@feed_back).deliver_now

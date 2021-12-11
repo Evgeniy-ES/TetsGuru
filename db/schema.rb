@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_09_115146) do
+ActiveRecord::Schema.define(version: 2021_12_11_110450) do
 
   create_table "answers", force: :cascade do |t|
     t.string "text", default: "Good!", null: false
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_12_09_115146) do
 
   create_table "feed_backs", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.string "text"
+    t.string "text", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_feed_backs_on_user_id"

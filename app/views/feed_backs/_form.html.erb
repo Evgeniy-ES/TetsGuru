@@ -1,0 +1,12 @@
+<%= form_with model: @feed_back, local: true do |form| %>
+  <%= render 'shared/errors', resource: @feed_back %>
+  <p>
+    <%= form.label :message %><br>
+    <%= form.text_field :text, id: :feed_back_text%>
+  </p>
+
+
+  <br>
+
+  <input type="submit" >
+<% end %>

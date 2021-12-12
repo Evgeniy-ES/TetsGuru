@@ -1,5 +1,11 @@
 ru:
 
+  feed_backs:
+    new:
+      message: "Сообщение"
+    create:
+      success: "Сообщение успешно отправлено."
+
   layouts:
     application:
       welcome: "Добро пожаловать"
@@ -29,6 +35,8 @@ ru:
         create: "Создать тест"
         update: "Обновить тест"
     label:
+      feed_back:
+        message: "Сообщение"
       test:
         title: "Название"
         level: "Уровень"
@@ -62,6 +70,7 @@ ru:
 
   home:
     footer:
+      feed_back: "Обратная связь"
       Author: "Автор: Евсеев Евгений"
       Project: "Проект:"
       Study Project: "Учебный проект в онлайн-школе"
@@ -95,7 +104,7 @@ ru:
         Back: "Назад"
 
       form_inline:
-        submit: "Ok"  
+        submit: "Ok"
 
       new:
         Create New Test: "Создать новый тест"

@@ -3,5 +3,5 @@ class Category < ApplicationRecord
 
   default_scope { order(title: :asc)}
 
-  validates :title, presence: true
+  validates :name, presence: true
 end

@@ -28,15 +28,37 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    percentage_result >= SUCCESS_RATE_PROCENT
+    if percentage_result >= SUCCESS_RATE_PROCENT
+      self.current_question_id = Question.last.id
+      self.test_success = true
+      save!
+      check_badge
+      return true
+    end
   end
 
 
   private
 
+  def check_badge
+    badge = Badge.new
+    add_badge("Passed all backend tests") if badge.complete_all_tests_backend(user.id)
+    add_badge("Passed the test on the first attempt") if badge.first_succes_test_complete(user.id, self.test_id)
+    add_badge("Passed all tests of the same level") if badge.completed_level_all_tests(user.id, self.test_id)
+  end
+
+  def add_badge(name_rule)
+
+    rule = Rule.find_by(name: name_rule)
+    badges = Badge.where(rule_id: rule.id)
+    badges.each do |x|
+      UserBadge.create(user_id: user.id, badge_id: x.id)
+    end
+  end
+
+
   def before_validation_set_first_question
     self.current_question = test.questions.first if test.present?
-    #byebug
   end
 
 

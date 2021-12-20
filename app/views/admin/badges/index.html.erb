@@ -1,0 +1,15 @@
+<h1>Badges</h1>
+
+<%= link_to 'New Badges', new_admin_badge_path, class: 'navbar-brand' %>
+
+<table class="table table-striped">
+  <tr class="table-primary">
+    <th>Name</th>
+    <th>URL</th>
+    <th>Rule</th>
+    <th colspain="2">Действия</th>
+  </tr>
+  <%= render @badge %>
+</table>
+
+<%= link_to t('.back'), :root %>

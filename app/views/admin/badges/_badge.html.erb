@@ -1,0 +1,12 @@
+<tr>
+  <td class="title"><%= badge.name %></td>
+  <td class="id"><%= badge.url_badge %></td>
+  <td class="id"><%= @rule.find(badge.rule_id).name %></td>
+  <td class="align-middle"><%= link_to 'Edit', edit_admin_badge_path(badge) %></td>
+  <td class="align-middle">
+    <%= link_to 'Delete',
+                admin_badge_path(badge),
+                method: :delete,
+                data: { confirm: 'Are you sure?'} %>
+  </td>
+</tr>

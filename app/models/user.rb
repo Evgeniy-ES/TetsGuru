@@ -9,7 +9,6 @@ class User < ApplicationRecord
          #:confirmable
 
   has_many :gists
-  has_many :badges
   has_many :badges, through: :user_badges
   has_many :feed_backs
   has_many :test_passages, dependent: :destroy

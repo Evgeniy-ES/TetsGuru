@@ -54,9 +54,7 @@ class TestPassage < ApplicationRecord
   end
 
   def before_update_test_success
-    byebug
     self.test_success = true if completed? && self.success?
-    byebug
   end
 
   def correct_answers

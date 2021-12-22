@@ -6,7 +6,6 @@ class Badge < ApplicationRecord
 
   validates :name, presence: true
 
-
   def passed_all_parametr_tests(badge, testpassage)
 
     backend_id = {'backend' => 2, 'frontend' => '3'}
@@ -45,6 +44,7 @@ class Badge < ApplicationRecord
  def self.check_badge
 
    testpassage = TestPassage.last
+
    badges = Badge.all
 
    badges.each do |badge|

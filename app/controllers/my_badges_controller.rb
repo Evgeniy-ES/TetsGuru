@@ -2,7 +2,7 @@ class MyBadgesController < ApplicationController
   skip_before_action :authenticate_user!, raise: false
 
   def index
-    @badge = current_user.badges
-    @rule = Rule.all
+    @badges = current_user.badges
+    @rules = Rule.all
   end
 end

@@ -3,24 +3,12 @@ class Admin::BadgesController < Admin::BaseController
   before_action :find_badge, only: %i[ edit update destroy ]
 
   def index
-    @badge = Badge.all
-    @rule = Rule.all
+    @badges = Badge.all
+    @rules = Rule.all
   end
 
   def new
     @badge = Badge.new
-  end
-
-  def create
-
-    @badge = Badge.new(badge_params)
-
-    if @badge.save
-      redirect_to admin_badges_path, notice: t('.success')
-    else
-      render :new
-    end
-
   end
 
   def update
@@ -40,10 +28,25 @@ class Admin::BadgesController < Admin::BaseController
 
   end
 
+  def create
+
+    @badge = Badge.new(badge_params)
+
+    byebug
+
+    if @badge.save
+      redirect_to admin_badges_path, notice: t('.success')
+    else
+      render :new
+    end
+
+  end
+
+
   private
 
   def badge_params
-    params.require(:badge).permit(:name, :url_badge, :rule_id)
+    params.require(:badge).permit(:name, :url_badge, :rule_id, :parametr)
   end
 
   def find_badge

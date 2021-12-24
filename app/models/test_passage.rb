@@ -4,7 +4,7 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_first_question, on: :create
-  before_update :before_update_next_question, :before_update_test_success
+  before_update :before_update_next_question#, :before_update_test_success
 
   SUCCESS_RATE_PROCENT = 85
 
@@ -31,6 +31,10 @@ class TestPassage < ApplicationRecord
     percentage_result >= SUCCESS_RATE_PROCENT
   end
 
+  def before_update_test_success
+    self.test_success = true if completed? && self.success?
+  end
+
 
   private
 
@@ -53,9 +57,7 @@ class TestPassage < ApplicationRecord
     self.current_question = next_question
   end
 
-  def before_update_test_success
-    self.test_success = true if completed? && self.success?
-  end
+
 
   def correct_answers
     current_question.answers.correct

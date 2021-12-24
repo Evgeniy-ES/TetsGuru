@@ -9,6 +9,10 @@
     <%= form.number_field :level, id: :test_level %>
   </p>
   <p>
+    <%= form.label :timer %><br>
+    <%= form.time_field :timer, id: :test_timer, value: Time.now %>
+  </p>
+  <p>
     <%= form.label :category_id %><br>
     <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
   </p>

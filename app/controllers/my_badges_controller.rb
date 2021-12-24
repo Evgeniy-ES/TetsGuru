@@ -3,6 +3,5 @@ class MyBadgesController < ApplicationController
 
   def index
     @badges = current_user.badges
-    @rules = Rule.all
   end
 end

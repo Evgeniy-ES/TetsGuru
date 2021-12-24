@@ -3,7 +3,7 @@
 <h2>Result:
 
 <% if @test_passage.success? %>
-  <% Badge.check_badge %>
+  <% BadgeService.new(current_user) %>
   <span style="color: green;"><%= @test_passage.percentage_result %>%</span>
 <% else %>
   <span style="color: red;"><%= @test_passage.percentage_result %>%</span>

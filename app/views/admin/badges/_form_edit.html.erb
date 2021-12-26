@@ -1,8 +1,8 @@
 <%= form_with model: [:admin, @badge_find], local: true do |form| %>
   <%= render 'shared/errors', resource: @badge_find %>
   <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name, id: :badge_find_name%>
+    <%= form.label :title %><br>
+    <%= form.text_field :title, id: :badge_find_title%>
   </p>
   <p>
     <%= form.label :url_badge %><br>

@@ -1,5 +1,5 @@
 class MyBadgesController < ApplicationController
-  skip_before_action :authenticate_user!, raise: false
+  before_action :authenticate_user!
 
   def index
     @badges = current_user.badges

@@ -35,18 +35,6 @@ class TestPassage < ApplicationRecord
     self.test_success = true if completed? && self.success?
   end
 
-  def timer?
-    self.test.timer
-  end
-
-  def remaining_time
-    if Time.now - self.created_at < self.timer
-      Time.now - self.created_at
-    else
-      return 0
-    end
-  end
-
   private
 
   def before_validation_set_first_question

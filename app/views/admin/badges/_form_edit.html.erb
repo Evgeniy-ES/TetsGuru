@@ -9,6 +9,10 @@
     <%= form.text_field :url_badge, id: :badge_find_url_badge%>
   </p>
   <p>
+    <%= form.label :value %><br>
+    <%= form.text_field :value, id: :badge_value%>
+  </p>
+  <p>
     <%= form.label :rule_id %><br>
     <%= form.collection_select :rule_id, Rule.all, :id, :name, prompt: true %>
   </p>

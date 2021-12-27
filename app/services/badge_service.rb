@@ -13,8 +13,8 @@ class BadgeService
   def passed_all_parametr_tests(badge, testpassage)
 
     if badge.value
-      tests_backend = Test.by_category_name(category.title).pluck('tests.id')
-      tests_user = Test.by_category_name(category.title).joins("JOIN test_passages ON test_passages.user_id = #{testpassage.user_id} AND test_passages.test_success = true").pluck(:test_id)
+      tests_backend = Test.by_category_name(badge.value).pluck('tests.id')
+      tests_user = Test.by_category_name(badge.value).joins("JOIN test_passages ON test_passages.user_id = #{testpassage.user_id} AND test_passages.test_success = true").pluck(:test_id)
 
       tests_backend == tests_user
     end

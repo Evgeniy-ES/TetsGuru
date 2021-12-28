@@ -1,0 +1,24 @@
+<%= form_with model: [:admin, @badge_find], local: true do |form| %>
+  <%= render 'shared/errors', resource: @badge_find %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title, id: :badge_find_title%>
+  </p>
+  <p>
+    <%= form.label :url_badge %><br>
+    <%= form.text_field :url_badge, id: :badge_find_url_badge%>
+  </p>
+  <p>
+    <%= form.label :value %><br>
+    <%= form.text_field :value, id: :badge_value%>
+  </p>
+  <p>
+    <%= form.label :rule_id %><br>
+    <%= form.collection_select :rule_id, Rule.all, :id, :name, prompt: true %>
+  </p>
+
+  <br>
+
+  <p><%= form.submit %></p>
+
+  <% end %>

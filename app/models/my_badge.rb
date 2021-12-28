@@ -1,0 +1,3 @@
+class MyBadge < ApplicationRecord
+  
+end

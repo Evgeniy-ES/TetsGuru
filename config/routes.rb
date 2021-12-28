@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
    namespace :admin do
      resources :gists, only: %i[index]
+     resources :badges
      resources :tests  do
        patch :update_inline, on: :member
 
@@ -38,21 +39,7 @@ Rails.application.routes.draw do
 
    resources :feed_backs, only: %i[new create]
 
-  # resources :tests do
-  #   resourroot to: 'tests#index'ces :questions, shallow: true
-  # end
-
-  # resources :tests do
-  #   get :beginner, on: :collection
-  #
-  #   member do
-  #     post :start
-  #   end
-  # end
-
-  #get '/tests/:id/start', to: 'tests#start'
-
-  #get '/tests/:id/start', to: 'tasks#start'
-
+   resources :my_badges, only: %i[index]
+   resources :badges, only: %i[index]
 
 end

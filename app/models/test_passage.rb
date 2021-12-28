@@ -31,12 +31,14 @@ class TestPassage < ApplicationRecord
     percentage_result >= SUCCESS_RATE_PROCENT
   end
 
+  def test_completed_and_success?
+    self.test_success = true if completed? && self.success?
+  end
 
   private
 
   def before_validation_set_first_question
     self.current_question = test.questions.first if test.present?
-    #byebug
   end
 
 
@@ -53,6 +55,8 @@ class TestPassage < ApplicationRecord
   def before_update_next_question
     self.current_question = next_question
   end
+
+
 
   def correct_answers
     current_question.answers.correct

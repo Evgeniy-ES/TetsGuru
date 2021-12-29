@@ -4,6 +4,7 @@ class TestPassagesController < ApplicationController
   before_action :set_test_passage, only: %i[show update result gist]
 
   def show
+    
   end
 
   def result
@@ -22,7 +23,6 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-
     gist_object = GistQuestionService.new(@test_passage.current_question)
     result = gist_object.call
     flash_options = if gist_object.success?
@@ -36,6 +36,8 @@ class TestPassagesController < ApplicationController
 
     redirect_to @test_passage, flash_options
   end
+
+
 
   private
 

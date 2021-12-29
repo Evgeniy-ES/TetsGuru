@@ -8,9 +8,20 @@
     class: 'all-count-questions', data: { all_count_questions: @test_passage.test.questions.count } %>
 </p>
 
+<div id="timer">
+  <% if @test_passage.test.timer? %>
+  <%= content_tag :span, @test_passage.calculation_time(@test_passage),
+    class: 'remaining-time', data: { remaining_time: @test_passage.calculation_time(@test_passage) } %>
+  <% end %>
+</div>
+
+
+<br>
+
 <div id="progress">
   <div id="progress-bar">0%</div>
 </div>
+
 
 <br>
 <b>
@@ -34,6 +45,6 @@
 
   <%= link_to 'Gist question', gist_test_passage_path(@test_passage), method: :post %>
 
-  <p><%= form.submit t('test_passages.show.next'), class: 'btn btn-primary mt-4' %></p>
+  <p><%= form.submit t('test_passages.show.next'), class: 'btn btn-primary mt-4', id: "submit-form" %></p>
 
 <% end %>

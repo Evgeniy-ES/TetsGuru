@@ -4,6 +4,7 @@ class TestPassagesController < ApplicationController
   before_action :set_test_passage, only: %i[show update result gist]
 
   def show
+
   end
 
   def result
@@ -12,7 +13,7 @@ class TestPassagesController < ApplicationController
   def update
     @test_passage.accept!(params[:answer_ids])
 
-    if @test_passage.completed?
+    if @test_passage.completed? || @test_passage.remaining_time(@test_passage).nil?
       @test_passage.test_completed_and_success?
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
@@ -22,7 +23,6 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-
     gist_object = GistQuestionService.new(@test_passage.current_question)
     result = gist_object.call
     flash_options = if gist_object.success?

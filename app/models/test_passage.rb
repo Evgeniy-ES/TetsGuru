@@ -36,17 +36,12 @@ class TestPassage < ApplicationRecord
   end
 
   def calculation_time(test_passage)
-
-    if remaining_time(test_passage.test.timer, test_passage.created_at) > 0
-       remaining_time(test_passage.test.timer, test_passage.created_at)
-    end
+    remaining_time(test_passage.test.timer, test_passage.created_at)
   end
 
   def remaining_time(timer, begin_time)
     if timer > (Time.now - begin_time).to_i
       timer - (Time.now - begin_time).to_i
-    else
-      return 0
     end
   end
 

@@ -10,8 +10,8 @@
 
 <div id="timer">
   <% if @test_passage.test.timer? %>
-  <%= content_tag :span, @test_passage.calculation_time(@test_passage),
-    class: 'remaining-time', data: { remaining_time: @test_passage.calculation_time(@test_passage) } %>
+  <%= content_tag :span, @test_passage.remaining_time(@test_passage),
+    class: 'remaining-time', data: { remaining_time: @test_passage.remaining_time(@test_passage) } %>
   <% end %>
 </div>
 

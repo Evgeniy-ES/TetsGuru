@@ -35,13 +35,9 @@ class TestPassage < ApplicationRecord
     self.test_success = true if completed? && self.success?
   end
 
-  def calculation_time(test_passage)
-    remaining_time(test_passage.test.timer, test_passage.created_at)
-  end
-
-  def remaining_time(timer, begin_time)
-    if timer > (Time.now - begin_time).to_i
-      timer - (Time.now - begin_time).to_i
+  def remaining_time(test_passage)
+    if test_passage.test.timer > (Time.now - test_passage.created_at).to_i
+      test_passage.test.timer - (Time.now - test_passage.created_at).to_i
     end
   end
 

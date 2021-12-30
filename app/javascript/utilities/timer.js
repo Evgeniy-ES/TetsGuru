@@ -17,7 +17,6 @@ document.addEventListener('turbolinks:load', function() {
 
           timePassed += 1;
           timeLeft = timer - timePassed;
-          console.log(timeLeft)
           if (!timeLeft) {
               clearInterval(timerInterval);
               document.getElementById("submit-form").click()
